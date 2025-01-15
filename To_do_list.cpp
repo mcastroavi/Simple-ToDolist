@@ -1,3 +1,5 @@
+// C++ 
+// Updating 
 #include <iostream>
 #include <list>
 #include <string>
@@ -8,8 +10,10 @@ public:
     string tasks;
     int view ;
     int tasktodelet ;
-    int ext ;
-    int tasktoadd;
+    int ext = 4;
+
+    list<string> adding = {};
+    list<string> &deleting = adding;
     
     void displayMenu(){
         
@@ -20,20 +24,31 @@ public:
     }
     
     void adding(){
-        list<string> adding = {};
-        cout << 'Enter your task: ' << endl;
-        cin>> tasktoadd;
-        add.push_back(tasks);
+
+        cout << "Enter your task: " << endl;
+        cin>> tasks;
+        adding.push_back(tasks);
         
     }
 
     void deleting(){
-        list<string> &deleting = adding;
-        count << 'Enter your task number: ' << endl;
-        cin>> tasktodelet;
         
+        count << "Enter your task number to delete: " << endl;
+        cin>> tasktodelet;
+        deleting.remove(tasktodelet);
 
-    } 
+    }
+    
+    void viewTask(){
+
+        cout << "View tasks: ";
+        for (const auto &view : adding) {
+            cout << view << endl;
+        }
+        cout<< endl;
+    }
+
+
     
     
 };
